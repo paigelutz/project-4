@@ -32,4 +32,16 @@ let controller = function() {
   });
 };
 
-$(document).ready(controller);
+let deleteHandler = () => {
+  console.log("dH");
+  localStorage.removeItem("commentsList");
+  window.location.reload();
+};
+
+$(document).ready(() => {
+  //console.log("ready");
+  //select the delete button
+  let buttonElem = document.querySelectorAll('button')[1];
+  buttonElem.addEventListener('click', deleteHandler);
+  controller();
+});
